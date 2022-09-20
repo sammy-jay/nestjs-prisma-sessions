@@ -1,26 +1,15 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsObject,
-  IsOptional,
-  ValidateNested,
-} from 'class-validator';
-import { AddressDto } from './address.dto';
+import { IsString, IsNotEmpty, IsEmail } from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   name: string;
 
-  @IsString()
+  @IsEmail()
   @IsNotEmpty()
   email: string;
 
   @IsString()
   @IsNotEmpty()
   password: string;
-
-  @IsObject()
-  @IsOptional()
-  address?: AddressDto;
 }
